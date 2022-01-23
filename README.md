@@ -4,8 +4,17 @@ So a friend of mine @Rafael and I were looking to make this thing even better.
 Originally written by Mikebanks
 https://github.com/mikebanks/AbuseIPdbSCAN
 
-
 This is a python script that will parse IP addresses from files or manually interact with AbuseIPDB API. It will return the information about the IP into standard out in various outputs.
+
+The main change is that it showed like this before
+![AbuseDB1.png](AbuseDB1.png)
+
+And now it's looking like this:
+![AbuseDB2.png](AbuseDB2.png)
+
+I think it's a more comfortable way to see the data.
+
+
 
 ## Installation
 
