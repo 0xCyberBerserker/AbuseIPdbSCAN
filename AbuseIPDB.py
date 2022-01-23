@@ -244,7 +244,8 @@ def screenshot(IP):
     driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")
     driver.get(URL)
     S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
-    driver.set_window_size(S('Width'),S('Height'), driver.window_handles[0]) # May need manual adjustment                                                                                                                
+    #driver.set_window_size(S('Width'),S('Height'), driver.window_handles[0]) # May need manual adjustment
+    driver.set_window_size(540,1800, driver.window_handles[0]) # May need manual adjustment
     driver.find_element_by_tag_name('body').screenshot('AbuseIPDB_'+IP+'.png')
     driver.quit()
 
