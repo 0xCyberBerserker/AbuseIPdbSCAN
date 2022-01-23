@@ -22,7 +22,7 @@ I think it's a more comfortable way to see the data.
 ## Installation
 
 ``` BASH
-git clone https://github.com/mikebanks/AbuseIPdbSCAN.git
+git clone https://github.com/JohnMorgan1234/AbuseIPdbSCAN.git
 ```
 
 ## Requirements
