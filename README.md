@@ -1,5 +1,5 @@
 # AbuseIPDB Scanner with a better JSON looking
-So a friend of mine @Rafael and I were looking to make this thing even better.
+So a friend of mine @Rafael and I were looking to make this thing even better because I use it every day work.
 
 Originally written by Mikebanks
 https://github.com/mikebanks/AbuseIPdbSCAN
@@ -28,14 +28,14 @@ git clone https://github.com/mikebanks/AbuseIPdbSCAN.git
 ``` BASH
 pip3 install -r requirements.txt
 ```
-**IMPORTANT:** If you used the original version of the code made by the main author you should need to install **pprint** instead all the other packets so run this command:
+**IMPORTANT:** If you used the original version of the code made by the main author you should need to install **pygments** instead all the other packets so run this command:
 ``` BASH
-pip3 install pprint
+pip3 install pygments
 ```
 
 ## AbuseIPDB API Key
 
-In order to use the script you will need an API key. The AbuseIPDB API key information can be found here: deprecated, V2: <https://docs.abuseipdb.com/>
+In order to use the script you will need an API key. The AbuseIPDB API key information can be found here: V2: <https://docs.abuseipdb.com/>
 
 ## Usage
 
