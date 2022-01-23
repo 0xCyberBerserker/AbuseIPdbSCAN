@@ -77,4 +77,4 @@ Short Form    | Long Form     | Description
 ``python3 AbuseIPDB.py -cc nz -x``
 
 
-Thanks to the main author Mikebanks <https://github.com/mikebanks/> and my friend Rafael for giving me the advice with that awesome library :D
+Thanks to the main author Mikebanks <https://github.com/mikebanks/> and my friends Pol & Rafael for giving me the advice with that awesome python libs! :D
