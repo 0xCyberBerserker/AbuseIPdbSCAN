@@ -24,7 +24,7 @@ It's simple. Go to Options -> Help -> About Google Chrome
 
 ![imgRepo/ChromeVersion.png](imgRepo/ChromeVersion.png)
 
-Now download the ChromeDriver and declare the directory you moved it in the code in line 244.
+Now download the ChromeDriver and declare the directory you moved it in the code in line 244 of AbuseIPDB.py .
 
 ``` PYTHON
 driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")
