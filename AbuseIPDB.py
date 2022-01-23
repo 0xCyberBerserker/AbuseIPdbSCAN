@@ -238,7 +238,7 @@ def search_cc(days):
         exit()
 
 def screenshot(IP):
-    URL = "https://www.abuseipdb.com/check/"+args.ip
+    URL = "https://www.abuseipdb.com/check/"+IP
     options = webdriver.ChromeOptions()
     options.headless = True
     driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")

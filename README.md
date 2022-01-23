@@ -1,6 +1,6 @@
 ![imgRepo/AbuseFiglet.png](imgRepo/AbuseFiglet.png)
 
-# AbuseIPDB Scanner with a better JSON looking
+# AbuseIPDB Scanner with a far better JSON looking and Automatic Screenshots by IP!
 So a friend of mine @Rafael and I were looking to make this thing even better because I use it every day work.
 
 Originally written by Mikebanks
@@ -24,13 +24,14 @@ It's simple. Go to Options -> Help -> About Google Chrome
 
 ![imgRepo/ChromeVersion.png](imgRepo/ChromeVersion.png)
 
-Now download the ChromeDriver and declare the directory you moved it in the code in line 244 of AbuseIPDB.py .
+Now download the ChromeDriver of the same version of Google Chrome and declare the directory you moved it in the code in line 244 of AbuseIPDB.py .
 
 ``` PYTHON
 driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")
 ```
 
 PS: It would possibly be necessary to install a good adblocker on your google chrome web browser to make sure the screenshots are seen well.
+Then when the Screenshot is taken your image viewer will pop up with your new screenshot!
 
 ## Installation
 
@@ -51,40 +52,35 @@ In order to use the script you will need an API key. The AbuseIPDB API key infor
 
 ## Usage
 
-Basic Commands:
+Basic Arguments:
 
 Short Form    | Long Form     | Description
 ------------- | ------------- |-------------
--f            | --file        | parses IP Addresses from a single given file
--b            | --block       | lookup an IP block
--d            | --days        | take in the number of days in history to go back for IP reports. Default: 30 Days
--i            | --ip          | lookup a single IP address
--v            | --version     | displays version information
--cc           | --countrycode | select a country code to check IP range
+-i            | --ip          | lookup a single IP address ( **WORKING!!!** )
+-f            | --file        | parses IP Addresses from a single given file (**Work In Progress**)
+-b            | --block       | lookup an IP block (Currently not working)
+-d            | --days        | take in the number of days in history to go back for IP reports. Default: 30 Days (Currently not working)
+-v            | --version     | displays version information (Working)
+-cc           | --countrycode | select a country code to check IP range (Currently not working)
 
-Output commands:
-Short Form    | Long Form     | Description
-------------- | ------------- |-------------
--c            | --csv         | outputs items in comma seperated values
--j            | --json        | outputs items in json format (reccomended)
--l            | --jsonl       | outputs items in jsonl format (reccomended)
--t            | --tsv         | outputs items in tab seperated values (Default)
--x            | --translate   | by default categories are numbers, with this flag it will convert them to text
+
 
 
 ### Examples
 
 * To search for reports on an IP address:
 
-``python3 AbuseIPDB.py -i 1.1.1.1``
+``` BASH
+python3 AbuseIPDB.py -i 1.1.1.1
+```
 
-* To search for reports on an IP Block:
+[//]: <* To search for reports on an IP Block:> 
 
-``python3 AbuseIPDB.py -b 1.1.1.0/24``
+[//]: <``python3 AbuseIPDB.py -b 1.1.1.0/24``> 
 
-* To search a whole country IP range and translate the categories to names:
+[//]: <* To search a whole country IP range and translate the categories to names:>
 
-``python3 AbuseIPDB.py -cc nz -x``
+[//]: <``python3 AbuseIPDB.py -cc nz -x``>
 
 
 Thanks to the main author Mikebanks <https://github.com/mikebanks/> and my friends Pol & Rafael for giving me the advice with that awesome python libs!😁
