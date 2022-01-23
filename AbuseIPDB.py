@@ -15,10 +15,13 @@ import urllib.request as urllib
 import urllib.request as urlRequest
 import urllib.parse as urlParse
 import pprint
-from pygments import highlight, lexers, formatters
 
+from pygments import highlight, lexers, formatters
+from pyfiglet import Figlet
 from dotenv import load_dotenv
 
+f = Figlet(font='Slant')
+print(f.renderText('AbuseIPDB Scanner'))
 
 # Setup API Key
 while os.getenv('API_KEY') is None:
