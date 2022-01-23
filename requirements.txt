@@ -5,4 +5,4 @@ netaddr
 python-dotenv
 requests
 urllib3
-pprint
+pygments

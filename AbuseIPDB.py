@@ -15,6 +15,7 @@ import urllib.request as urllib
 import urllib.request as urlRequest
 import urllib.parse as urlParse
 import pprint
+from pygments import highlight, lexers, formatters
 
 from dotenv import load_dotenv
 
@@ -261,8 +262,7 @@ def get_report(logs):
                 json.dump(logs, outfile, indent=4, sort_keys=True)
             pass
         else:
-            pp = pprint.PrettyPrinter(indent=4)
-            pp.pprint(logs)
+            print(highlight(json.dumps(logs, indent=4, sort_keys=True), lexers.JsonLexer(), formatters.TerminalFormatter()))
             pass
     else:
         pass
