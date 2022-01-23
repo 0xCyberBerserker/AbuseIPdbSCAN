@@ -14,6 +14,7 @@ import ipaddress
 import urllib.request as urllib
 import urllib.request as urlRequest
 import urllib.parse as urlParse
+import pprint
 
 from dotenv import load_dotenv
 
@@ -252,7 +253,7 @@ def get_report(logs):
             json_logs = json.dumps(logs)
             with open(args.jsonl, 'w') as outfile:
                 for log in logs:
-                    json.dump(log, outfile)
+                    json.dump(log, outfile, indent=4, sort_keys=True)
                     outfile.write('\n')
             pass
         elif args.json:
@@ -260,7 +261,8 @@ def get_report(logs):
                 json.dump(logs, outfile, indent=4, sort_keys=True)
             pass
         else:
-            print(logs)
+            pp = pprint.PrettyPrinter(indent=4)
+            pp.pprint(logs)
             pass
     else:
         pass
