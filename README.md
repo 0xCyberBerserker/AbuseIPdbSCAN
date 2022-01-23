@@ -1,4 +1,9 @@
-# AbuseIPDB Scanner
+# AbuseIPDB Scanner with a better JSON looking
+So a friend of mine @Rafael and I were looking to make this thing even better.
+
+Originally written by Mikebanks
+https://github.com/mikebanks/AbuseIPdbSCAN
+
 
 This is a python script that will parse IP addresses from files or manually interact with AbuseIPDB API. It will return the information about the IP into standard out in various outputs.
 
@@ -20,19 +25,26 @@ In order to use the script you will need an API key. The AbuseIPDB API key infor
 
 ## Usage
 
+Basic Commands:
+
 Short Form    | Long Form     | Description
 ------------- | ------------- |-------------
--b            | --block       | lookup an IP block
--c            | --csv         | outputs items in comma seperated values
--d            | --days        | take in the number of days in history to go back for IP reports. Default: 30 Days
 -f            | --file        | parses IP Addresses from a single given file
+-b            | --block       | lookup an IP block
+-d            | --days        | take in the number of days in history to go back for IP reports. Default: 30 Days
 -i            | --ip          | lookup a single IP address
+-v            | --version     | displays version information
+-cc           | --countrycode | select a country code to check IP range
+
+Output commands:
+Short Form    | Long Form     | Description
+------------- | ------------- |-------------
+-c            | --csv         | outputs items in comma seperated values
 -j            | --json        | outputs items in json format (reccomended)
 -l            | --jsonl       | outputs items in jsonl format (reccomended)
 -t            | --tsv         | outputs items in tab seperated values (Default)
 -x            | --translate   | by default categories are numbers, with this flag it will convert them to text
--v            | --version     | displays version information
--cc           | --countrycode | select a country code to check IP range
+
 
 ### Examples
 
@@ -47,3 +59,4 @@ Short Form    | Long Form     | Description
 * To search a whole country IP range and translate the categories to names:
 
 ``python3 AbuseIPDB.py -cc nz -x``
+
