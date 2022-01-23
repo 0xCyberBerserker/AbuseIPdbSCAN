@@ -34,7 +34,7 @@ driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")
 ## Installation
 
 ``` BASH
-git clone https://github.com/mikebanks/AbuseIPdbSCAN.git
+git clone https://github.com/JohnMorgan1234/AbuseIPdbSCAN.git
 ```
 
 ## Requirements
@@ -42,6 +42,13 @@ git clone https://github.com/mikebanks/AbuseIPdbSCAN.git
 ``` BASH
 pip3 install -r requirements.txt
 ```
+<<<<<<< HEAD
+=======
+**IMPORTANT:** If you used the original version of the code made by the main author you should need to install **pygments** and **pyfiglet** instead all the other packets so run this command:
+``` BASH
+pip3 install pygments pyfiglet
+```
+>>>>>>> 48de2969026f1cdce854a44a423c010e4f133c98
 
 ## AbuseIPDB API Key
 
@@ -85,4 +92,4 @@ Short Form    | Long Form     | Description
 ``python3 AbuseIPDB.py -cc nz -x``
 
 
-Thanks to the main author Mikebanks <https://github.com/mikebanks/> and my friend Rafael for giving me the advice with that awesome library :D
+Thanks to the main author Mikebanks <https://github.com/mikebanks/> and my friends Pol & Rafael for giving me the advice with that awesome python libs!😁
