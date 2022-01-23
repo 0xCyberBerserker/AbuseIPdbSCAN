@@ -8,5 +8,4 @@ urllib3
 pygments
 pyfiglet
 selenium
-time
 pillow
