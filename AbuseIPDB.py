@@ -2,6 +2,7 @@
 import os
 import re
 import csv
+from telnetlib import IP
 import time
 import json
 import codecs
@@ -14,7 +15,13 @@ import ipaddress
 import urllib.request as urllib
 import urllib.request as urlRequest
 import urllib.parse as urlParse
-import pprint
+
+
+from PIL import Image
+from selenium import webdriver
+import time
+from selenium.webdriver.chrome.options import Options
+
 
 from pygments import highlight, lexers, formatters
 from pyfiglet import Figlet
@@ -230,6 +237,26 @@ def search_cc(days):
 
         exit()
 
+def screenshot(IP):
+    URL = "https://www.abuseipdb.com/check/"+args.ip
+    options = webdriver.ChromeOptions()
+    options.headless = True
+    driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")
+    driver.get(URL)
+    S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
+    driver.set_window_size(S('Width'),S('Height'), driver.window_handles[0]) # May need manual adjustment                                                                                                                
+    driver.find_element_by_tag_name('body').screenshot('AbuseIPDB_'+IP+'.png')
+    driver.quit()
+
+def img_show(IP):
+    img = Image.open('./AbuseIPDB_'+IP+'.png')
+    img.show()
+    
+
+
+screenshot(args.ip)
+img_show(args.ip)
+
 
 def get_report(logs):
     if logs:
@@ -269,6 +296,7 @@ def get_report(logs):
             pass
     else:
         pass
+
 
 
 def main():
