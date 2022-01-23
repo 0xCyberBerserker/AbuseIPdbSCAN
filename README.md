@@ -1,3 +1,5 @@
+![AbuseFiglet.png](AbuseFiglet.png)
+
 # AbuseIPDB Scanner with a better JSON looking
 So a friend of mine @Rafael and I were looking to make this thing even better because I use it every day work.
 
