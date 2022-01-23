@@ -249,8 +249,10 @@ def screenshot(IP):
     driver.quit()
 
 def img_show(IP):
-    img = Image.open('./AbuseIPDB_'+IP+'.png')
-    img.show()
+    #img = Image.open('./AbuseIPDB_'+IP+'.png')
+    #img.show()
+    img="./AbuseIPDB_"+IP+'.png'
+    os.system('start '+img)
     
 
 
