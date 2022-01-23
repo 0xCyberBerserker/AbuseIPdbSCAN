@@ -30,9 +30,9 @@ git clone https://github.com/mikebanks/AbuseIPdbSCAN.git
 ``` BASH
 pip3 install -r requirements.txt
 ```
-**IMPORTANT:** If you used the original version of the code made by the main author you should need to install **pygments** instead all the other packets so run this command:
+**IMPORTANT:** If you used the original version of the code made by the main author you should need to install **pygments** and **pyfiglet** instead all the other packets so run this command:
 ``` BASH
-pip3 install pygments
+pip3 install pygments pyfiglet
 ```
 
 ## AbuseIPDB API Key
