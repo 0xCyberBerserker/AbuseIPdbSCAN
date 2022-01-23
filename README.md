@@ -10,6 +10,7 @@ The main change is that it showed like this before
 ![AbuseDB1.png](AbuseDB1.png)
 
 And now it's looking like this:
+
 ![AbuseDB2.png](AbuseDB2.png)
 
 I think it's a more comfortable way to see the data.
