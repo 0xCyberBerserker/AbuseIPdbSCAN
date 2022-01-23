@@ -28,10 +28,14 @@ git clone https://github.com/mikebanks/AbuseIPdbSCAN.git
 ``` BASH
 pip3 install -r requirements.txt
 ```
+**IMPORTANT:** If you used the original version of the code made by the main author you should need to install **pprint** instead all the other packets so run this command:
+``` BASH
+pip3 install pprint
+```
 
 ## AbuseIPDB API Key
 
-In order to use the script you will need an API key. The AbuseIPDB API key information can be found here: <https://www.abuseipdb.com/api.html> (deprecated, V2: <https://docs.abuseipdb.com/>)
+In order to use the script you will need an API key. The AbuseIPDB API key information can be found here: deprecated, V2: <https://docs.abuseipdb.com/>
 
 ## Usage
 
