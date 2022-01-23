@@ -19,7 +19,7 @@ I think it's a more comfortable way to see the data.
 
 **UPDATE**
 
-Now if you want the script to make a Screenshot the case in AbuseIPDB.com and you have GoogleChrome Installed, watch the version and download the same on here: <https://chromedriver.storage.googleapis.com/index.html/> so you can take all the advantages that this fork offers to you!
+Now if you want the script to make a Screenshot the case in AbuseIPDB.com and you have GoogleChrome Installed, watch the version and download the same on here: <https://chromedriver.chromium.org/downloads/> so you can take all the advantages that this fork offers to you!
 It's simple. Go to Options -> Help -> About Google Chrome
 
 ![imgRepo/ChromeVersion.png](imgRepo/ChromeVersion.png)
