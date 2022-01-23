@@ -24,7 +24,7 @@ It's simple. Go to Options -> Help -> About Google Chrome
 
 ![imgRepo/ChromeVersion.png](imgRepo/ChromeVersion.png)
 
-Now download the ChromeDriver and declare in the code the Path of it in the line 244.
+Now download the ChromeDriver and declare the directory you moved it in the code in line 244.
 
 ``` PYTHON
 driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")
@@ -42,13 +42,7 @@ git clone https://github.com/JohnMorgan1234/AbuseIPdbSCAN.git
 ``` BASH
 pip3 install -r requirements.txt
 ```
-<<<<<<< HEAD
-=======
-**IMPORTANT:** If you used the original version of the code made by the main author you should need to install **pygments** and **pyfiglet** instead all the other packets so run this command:
-``` BASH
-pip3 install pygments pyfiglet
-```
->>>>>>> 48de2969026f1cdce854a44a423c010e4f133c98
+
 
 ## AbuseIPDB API Key
 
