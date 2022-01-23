@@ -30,6 +30,7 @@ Now download the ChromeDriver and declare the directory you moved it in the code
 driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")
 ```
 
+PS: It would possibly be necessary to install a good adblocker on your google chrome web browser to make sure the screenshots are seen well.
 
 ## Installation
 
