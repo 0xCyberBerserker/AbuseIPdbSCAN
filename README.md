@@ -1,22 +1,34 @@
-![AbuseFiglet.png](AbuseFiglet.png)
+![imgRepo/AbuseFiglet.png](imgRepo/AbuseFiglet.png)
 
 # AbuseIPDB Scanner with a better JSON looking
 So a friend of mine @Rafael and I were looking to make this thing even better because I use it every day work.
 
 Originally written by Mikebanks
-https://github.com/mikebanks/AbuseIPdbSCAN
+<https://github.com/mikebanks/AbuseIPdbSCAN/>
 
 This is a python script that will parse IP addresses from files or manually interact with AbuseIPDB API. It will return the information about the IP into standard out in various outputs.
 
 The main change is that it showed like this before
-![AbuseDB1.png](AbuseDB1.png)
+![imgRepo/AbuseDB1.png](imgRepo/AbuseDB1.png)
 
 And now it's looking like this:
 
-![AbuseDB2.png](AbuseDB2.png)
+![imgRepo/AbuseDB2.png](imgRepo/AbuseDB2.png)
 
 I think it's a more comfortable way to see the data.
 
+**UPDATE**
+
+Now if you want the script to make a Screenshot the case in AbuseIPDB.com and you have GoogleChrome Installed, watch the version and download the same on here: <https://chromedriver.storage.googleapis.com/index.html/> so you can take all the advantages that this fork offers to you!
+It's simple. Go to Options -> Help -> About Google Chrome
+
+![imgRepo/ChromeVersion.png](imgRepo/ChromeVersion.png)
+
+Now download the ChromeDriver and declare in the code the Path of it in the line 244.
+
+``` PYTHON
+driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")
+```
 
 
 ## Installation
@@ -30,10 +42,13 @@ git clone https://github.com/JohnMorgan1234/AbuseIPdbSCAN.git
 ``` BASH
 pip3 install -r requirements.txt
 ```
+<<<<<<< HEAD
+=======
 **IMPORTANT:** If you used the original version of the code made by the main author you should need to install **pygments** and **pyfiglet** instead all the other packets so run this command:
 ``` BASH
 pip3 install pygments pyfiglet
 ```
+>>>>>>> 48de2969026f1cdce854a44a423c010e4f133c98
 
 ## AbuseIPDB API Key
 
