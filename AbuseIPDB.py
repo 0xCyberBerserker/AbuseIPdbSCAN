@@ -27,8 +27,8 @@ from pygments import highlight, lexers, formatters
 from pyfiglet import Figlet
 from dotenv import load_dotenv
 
-f = Figlet(font='Slant')
-print(f.renderText('AbuseIPDB Scanner'))
+#f = Figlet(font='Slant')
+#print(f.renderText('AbuseIPDB Scanner'))
 
 # Setup API Key
 while os.getenv('API_KEY') is None:
@@ -153,6 +153,33 @@ def check_block(ip_block, days):
         return (f"{ip_block} is a private block")
 
 
+
+def screenshot(IP):
+    URL = "https://www.abuseipdb.com/check/"+IP
+    options = webdriver.ChromeOptions()
+    options.headless = True
+    #Linux
+    driver = webdriver.Chrome("./chromedrivers/chromedriver")
+    #Windows
+    #driver = webdriver.Chrome("./chromedrivers/chromedriver.exe")
+    driver.get(URL)
+    S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
+    #driver.set_window_size(S('Width'),S('Height'), driver.window_handles[0]) # May need manual adjustment
+    driver.set_window_size(540,1800, driver.window_handles[0]) # May need manual adjustment
+    driver.find_element_by_tag_name('body').screenshot('AbuseIPDB_'+IP+'.png')
+    driver.quit()
+
+def img_show(IP):
+    #img = Image.open('./AbuseIPDB_'+IP+'.png')
+    #img.show()
+    img="./AbuseIPDB_"+IP+'.png'
+    #linux
+    os.system("shotwell "+img)
+    #windows
+    #os.system('start '+img)
+    
+
+
 def check_ip(IP, days):
     if ipaddress.ip_address(IP).is_private is False:
         headers = {
@@ -169,6 +196,8 @@ def check_ip(IP, days):
         r = requests.get('https://api.abuseipdb.com/api/v2/check',
                          headers=headers, params=params)
         response = r.json()
+        screenshot(args.ip)
+        img_show(args.ip)
         if 'errors' in response:
             print(f"Error: {response['errors'][0]['detail']}")
             exit(1)
@@ -237,28 +266,6 @@ def search_cc(days):
 
         exit()
 
-def screenshot(IP):
-    URL = "https://www.abuseipdb.com/check/"+IP
-    options = webdriver.ChromeOptions()
-    options.headless = True
-    driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")
-    driver.get(URL)
-    S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
-    #driver.set_window_size(S('Width'),S('Height'), driver.window_handles[0]) # May need manual adjustment
-    driver.set_window_size(540,1800, driver.window_handles[0]) # May need manual adjustment
-    driver.find_element_by_tag_name('body').screenshot('AbuseIPDB_'+IP+'.png')
-    driver.quit()
-
-def img_show(IP):
-    #img = Image.open('./AbuseIPDB_'+IP+'.png')
-    #img.show()
-    img="./AbuseIPDB_"+IP+'.png'
-    os.system('start '+img)
-    
-
-
-screenshot(args.ip)
-img_show(args.ip)
 
 
 def get_report(logs):
@@ -323,7 +330,7 @@ def main():
     elif args.countrycode:
         get_report(search_cc(days))
     elif args.version:
-        print(f"{parser.prog} Version: 2.1")
+        print(f"{parser.prog} Version: 2.2, Forked by JohnMorgan1234")
     else:
         exit(
             "Error: one of the following arguments are required: -f/--file, -i/--ip, -b/--block or -cc/--countrycode")
