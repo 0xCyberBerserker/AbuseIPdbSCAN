@@ -58,6 +58,11 @@ required.add_argument(
     help="lookup a single IP address",
     action="store")
 required.add_argument(
+    "-s",
+    "--screenshot",
+    help="take a screenshot of the AbuseIPDB web page of the analysis of the IP",
+    action="store",)
+required.add_argument(
     "-b",
     "--block",
     help="lookup an IP block",
@@ -88,6 +93,75 @@ parser.add_argument(
     "-v", "--version", help="show program version", action="store_true")
 
 args = parser.parse_args()
+
+
+
+
+#################### MY FUNCTIONS
+def takeScreenshot(IP):
+    URL = "https://www.abuseipdb.com/check/"+IP
+    options = webdriver.ChromeOptions()
+    options.headless = True
+    #Linux
+    driver = webdriver.Chrome("./chromedrivers/chromedriver")
+    #Windows
+    #driver = webdriver.Chrome("./chromedrivers/chromedriver.exe")
+    driver.get(URL)
+    S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
+    #driver.set_window_size(S('Width'),S('Height'), driver.window_handles[0]) # May need manual adjustment
+    driver.set_window_size(540,1800, driver.window_handles[0]) # May need manual adjustment
+    driver.find_element_by_tag_name('body').screenshot('AbuseIPDB_'+IP+'.png')
+    driver.quit()
+
+def img_show(IP):
+    #img = Image.open('./AbuseIPDB_'+IP+'.png')
+    #img.show()
+    img="./AbuseIPDB_"+IP+'.png'
+    #linux
+    os.system("shotwell "+img)
+    #windows
+    #os.system('start '+img)
+
+
+def screenShootAnalysis(IP):
+    if ipaddress.ip_address(IP).is_private is False:
+        headers = {
+            'Key': api_key,
+            'Accept': 'application/json',
+        }
+
+        params = {
+        #    'maxAgeInDays': days,
+            'ipAddress': IP,
+            'verbose': ''
+        }
+
+        r = requests.get('https://api.abuseipdb.com/api/v2/check',
+                         headers=headers, params=params)
+        #response = r.json()
+        takeScreenshot(args.ip)
+        img_show(args.ip)
+        #if 'errors' in response:
+        #    print(f"Error: {response['errors'][0]['detail']}")
+        #    exit(1)
+        #else:
+        #    if args.translate:
+        #        if response['data']['totalReports'] > 0:
+        #            for report in response['data']['reports']:
+        #                tmp_catergory = []
+        #                category = report['categories']
+        #                for cat in category:
+        #                    tmp_catergory.append(get_cat(cat))
+        #                report['categories'] = tmp_catergory
+        #    return response['data']
+    else:
+        return (f"{IP} is private. No Resuls")
+
+
+
+
+###################
+
 
 
 def get_cat(x):
@@ -154,30 +228,6 @@ def check_block(ip_block, days):
 
 
 
-def screenshot(IP):
-    URL = "https://www.abuseipdb.com/check/"+IP
-    options = webdriver.ChromeOptions()
-    options.headless = True
-    #Linux
-    driver = webdriver.Chrome("./chromedrivers/chromedriver")
-    #Windows
-    #driver = webdriver.Chrome("./chromedrivers/chromedriver.exe")
-    driver.get(URL)
-    S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
-    #driver.set_window_size(S('Width'),S('Height'), driver.window_handles[0]) # May need manual adjustment
-    driver.set_window_size(540,1800, driver.window_handles[0]) # May need manual adjustment
-    driver.find_element_by_tag_name('body').screenshot('AbuseIPDB_'+IP+'.png')
-    driver.quit()
-
-def img_show(IP):
-    #img = Image.open('./AbuseIPDB_'+IP+'.png')
-    #img.show()
-    img="./AbuseIPDB_"+IP+'.png'
-    #linux
-    os.system("shotwell "+img)
-    #windows
-    #os.system('start '+img)
-    
 
 
 def check_ip(IP, days):
@@ -196,8 +246,7 @@ def check_ip(IP, days):
         r = requests.get('https://api.abuseipdb.com/api/v2/check',
                          headers=headers, params=params)
         response = r.json()
-        screenshot(args.ip)
-        img_show(args.ip)
+        
         if 'errors' in response:
             print(f"Error: {response['errors'][0]['detail']}")
             exit(1)
@@ -319,6 +368,8 @@ def main():
         get_report(check_file(args.file, days))
     elif args.ip:
         get_report(check_ip(args.ip, days))
+    elif args.screenshot:
+        screenShootAnalysis(args.ip)
     elif args.block:
         regex = '^([0-9]{1,3}\.){3}[0-9]{1,3}(\/([2][4-9]|3[0-2]))?$'
         valid_block = re.findall(regex, args.block)
