@@ -8,29 +8,27 @@ Originally written by Mikebanks
 
 This is a python script that will parse IP addresses from files or manually interact with AbuseIPDB API. It will return the information about the IP into standard out in various outputs.
 
+### Changes
+
 The main change is that it showed like this before
 ![imgRepo/AbuseDB1.png](imgRepo/AbuseDB1.png)
-
 And now it's looking like this:
-
 ![imgRepo/AbuseDB2.png](imgRepo/AbuseDB2.png)
 
-I think it's a more comfortable way to see the data.
 
-**UPDATE**
 
-Now if you want the script to make a Screenshot the case in AbuseIPDB.com and you have GoogleChrome Installed, watch the version and download the same on here: <https://chromedriver.chromium.org/downloads/> so you can take all the advantages that this fork offers to you!
+## **Screenshots of the webpage analysis**
+
+If you want to make a Screenshot the case in AbuseIPDB.com and you have GoogleChrome Installed now you can. There's a file called AbuseIpScreenshot.py that has the functions previously had the other script.
+In case you have version 97 of google chrome just use it like that, if not:
+Look at the version you have and download the same on here: <https://chromedriver.chromium.org/downloads/> so you can take all the advantages that this fork offers to you!
 It's simple. Go to Options -> Help -> About Google Chrome
 
 ![imgRepo/ChromeVersion.png](imgRepo/ChromeVersion.png)
 
-Now download the ChromeDriver of the same version of Google Chrome and declare the directory you moved it in the code in line 244 of AbuseIPDB.py .
+Now download the ChromeDriver of the same version of Google Chrome and move it to the folder called "chromedrivers"
 
-``` PYTHON
-driver = webdriver.Chrome("D:\Chromedriver\chromedriver.exe")
-```
-
-PS: It would possibly be necessary to install a good adblocker on your google chrome web browser to make sure the screenshots are seen well.
+**PS:** It would possibly be necessary to install a good adblocker on your google chrome web browser to make sure the screenshots are seen well.
 Then when the Screenshot is taken your image viewer will pop up with your new screenshot!
 
 ## Installation
@@ -38,6 +36,7 @@ Then when the Screenshot is taken your image viewer will pop up with your new sc
 ``` BASH
 git clone https://github.com/JohnMorgan1234/AbuseIPdbSCAN.git
 ```
+
 
 ## Requirements
 
@@ -50,7 +49,7 @@ pip3 install -r requirements.txt
 
 In order to use the script you will need an API key. The AbuseIPDB API key information can be found here: V2: <https://docs.abuseipdb.com/>
 
-## Usage
+## Usage of the main script
 
 Basic Arguments:
 
@@ -64,6 +63,11 @@ Short Form    | Long Form     | Description
 -cc           | --countrycode | select a country code to check IP range (Currently not working)
 
 
+## Usage of the ScreenShot script
+
+Short Form    | Long Form     | Description
+------------- | ------------- |-------------
+-i            | --ip          | lookup a single IP address, goes to Abuseipdb.com/IP_Given and takes screenshot.
 
 
 ### Examples
@@ -72,6 +76,10 @@ Short Form    | Long Form     | Description
 
 ``` BASH
 python3 AbuseIPDB.py -i 1.1.1.1
+```
+* And for taking a Screenshot:
+```BASH
+python3 AbuseIpDBScreenshot.py -i 1.1.1.1
 ```
 
 [//]: <* To search for reports on an IP Block:> 
