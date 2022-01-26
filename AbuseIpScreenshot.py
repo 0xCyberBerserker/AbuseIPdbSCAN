@@ -1,29 +1,19 @@
 #!/usr/bin/python3
 import os
-import re
-import csv
 from telnetlib import IP
-import time
-import json
-import codecs
-import socket
 import os.path
-import netaddr
 import argparse
-import requests
-import ipaddress
 import urllib.request as urllib
 import urllib.request as urlRequest
 import urllib.parse as urlParse
 import platform
 
-
 from PIL import Image
 from selenium import webdriver
+
 import time
+
 from selenium.webdriver.chrome.options import Options
-
-
 from pygments import highlight, lexers, formatters
 from pyfiglet import Figlet
 from dotenv import load_dotenv
@@ -46,23 +36,16 @@ required.add_argument(
     help="lookup a list of IPs",
     action="store")
 """
-
 args = parser.parse_args()
 
 
-
-def img_show(IP):
-    #img = Image.open('./AbuseIPDB_'+IP+'.png')
-    #img.show()
+def imgShow(IP):
     img="./AbuseIPDB_"+IP+'.png'
     if(platform.system() == "Windows"):
-        #windows
         os.system('start '+img)
     else:
-        #linux
         os.system("shotwell "+img)
-    
-    
+     
 def takeScreenshot(IP):
     URL = "https://www.abuseipdb.com/check/"+IP
     options = webdriver.ChromeOptions()
@@ -76,16 +59,14 @@ def takeScreenshot(IP):
     driver.get(URL)
     S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
     #driver.set_window_size(S('Width'),S('Height'), driver.window_handles[0]) # May need manual adjustment
-    driver.set_window_size(540,1800, driver.window_handles[0]) # May need manual adjustment
+    driver.set_window_size(540,1800, driver.window_handles[0]) # Manual Adjusted, like a phone
     driver.find_element_by_tag_name('body').screenshot('AbuseIPDB_'+IP+'.png')
     driver.quit()
-  
-    
 
 def main():
     if args.ip:
         takeScreenshot(args.ip)
-        img_show(args.ip)
+        imgShow(args.ip)
     
         
     else:
