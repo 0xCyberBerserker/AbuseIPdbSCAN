@@ -71,7 +71,7 @@ def main():
         
     else:
         exit(
-            "Error: one of the following arguments are required: -i/--ip")
+            "Error: one of the following arguments are required: -i/--ip, more work in progress")
 
 
 if __name__ == '__main__':

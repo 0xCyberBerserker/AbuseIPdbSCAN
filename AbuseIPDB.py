@@ -57,18 +57,7 @@ required.add_argument(
     "--ip",
     help="lookup a single IP address",
     action="store")
-required.add_argument(
-    "-p",
-    "--photo",
-    help="screenshot",
-    action="store")
-"""
-required.add_argument(
-    "-s",
-    "--screenshot",
-    help="take a screenshot of the AbuseIPDB web page of IP",
-    action="store")
-"""
+
 required.add_argument(
     "-b",
     "--block",
@@ -163,42 +152,6 @@ def check_block(ip_block, days):
 
     else:
         return (f"{ip_block} is a private block")
-
-
-
-
-
-
-#################### MY FUNCTIONS
-
-def img_show(IP):
-    #img = Image.open('./AbuseIPDB_'+IP+'.png')
-    #img.show()
-    img="./AbuseIPDB_"+IP+'.png'
-    #linux
-    os.system("shotwell "+img)
-    #windows
-    #os.system('start '+img)
-    
-def takeScreenshot(IP):
-    URL = "https://www.abuseipdb.com/check/"+IP
-    options = webdriver.ChromeOptions()
-    options.headless = True
-    #Linux
-    driver = webdriver.Chrome("./chromedrivers/chromedriver")
-    #Windows
-    #driver = webdriver.Chrome("./chromedrivers/chromedriver.exe")
-    driver.get(URL)
-    S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
-    #driver.set_window_size(S('Width'),S('Height'), driver.window_handles[0]) # May need manual adjustment
-    driver.set_window_size(540,1800, driver.window_handles[0]) # May need manual adjustment
-    driver.find_element_by_tag_name('body').screenshot('AbuseIPDB_'+IP+'.png')
-    driver.quit()
-
-
-
-###################
-
 
 
 def check_ip(IP, days):
@@ -339,9 +292,6 @@ def main():
         get_report(check_file(args.file, days))
     elif args.ip:
         get_report(check_ip(args.ip, days))
-    elif args.photo:
-        takeScreenshot(args.ip)
-        img_show(args.ip)
     elif args.block:
         regex = '^([0-9]{1,3}\.){3}[0-9]{1,3}(\/([2][4-9]|3[0-2]))?$'
         valid_block = re.findall(regex, args.block)
