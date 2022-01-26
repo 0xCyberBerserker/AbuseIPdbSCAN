@@ -77,7 +77,7 @@ Short Form    | Long Form     | Description
 ``` BASH
 python3 AbuseIPDB.py -i 1.1.1.1
 ```
-* And for taking a Screenshot:
+* And for taking a Screenshot directly :
 ```BASH
 python3 AbuseIpDBScreenshot.py -i 1.1.1.1
 ```
